@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+"psycopg2-binary" = "*"
+pillow = "*"
+django-summernote = "*"
+factory-boy = "*"
+pyaml = "*"
+django-constance = {extras = ["database"], version = "*"}
+"boto3" = "*"
+django-storages = "*"
+django-picklefield = "*"
+gunicorn = "*"
+orcid = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.6"

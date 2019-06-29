@@ -1,0 +1,141 @@
+/*
+*/
+
+$django-form-title-font-size: 1.4rem !default;
+$django-form-message-font-size: 0.9rem !default;
+$django-form-message-forecolor: white !default;
+$django-form-info-message-background-color: #4285F4 !default;
+$django-form-error-message-background-color: #F44259 !default;
+$django-form-button-foreground-color: white !default;
+$django-form-button-background-color: #7a9cd3 !default;
+$django-form-button-hover-background-color: #9fc1f8 !default;
+
+.generated-form {
+    padding-top: 100px;
+    align-self: center;
+    height: 100%;
+    min-width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+
+    position: relative;
+
+    h1 {
+        font-size: $django-form-title-font-size;
+        margin-bottom: 20px;
+        padding-bottom: 5px;
+        width: 100%;
+        border-bottom: 1px solid gray;
+    }
+
+    form {
+        width: 100%;
+        position: static;
+        padding-left: 20px;
+
+        p {
+            display: block;
+            position: relative;
+            margin-bottom: 20px;
+
+        }
+
+        ul {
+            display: none;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type=text], input[type=password], input[type=email], select {
+            margin-top: 5px;
+            display: block;
+            width: 50%;
+            min-width: 300px;
+            padding: 3px;
+        }
+
+        input[type=submit], button {
+            border: none;
+            background-color: $django-form-button-background-color;
+            padding: 5px 20px;
+            font-weight: bold;
+            color: $django-form-button-foreground-color;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $django-form-button-hover-background-color;
+            }
+        }
+
+        label + input[type=checkbox] {
+            display: inline-block;
+            margin: auto;
+            margin-left: 10px;
+            width: 1rem;
+            height: 1rem;
+            line-height: 200px;
+            vertical-align: middle;
+        }
+
+        .errorlist ~ p + ul {
+            display: block;
+            padding-bottom: 20px;
+
+            li {
+                list-style: none;
+                font-size: 0.8rem;
+            }
+        }
+
+        .errorlist {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            padding: 0;
+            width: 100%;
+
+            li {
+                @extend %message;
+                list-style: none;
+                background-color: $django-form-error-message-background-color;
+            }
+        }
+    }
+}
+
+%message {
+    width: 100%;
+    margin-top: 5px;
+    padding: 3px;
+    align-content: center;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: $django-form-message-font-size;
+}
+
+.helptext {
+    display: none;
+}
+
+.message-container {
+    top: 0;
+    padding: 0;
+    width: 100%;
+
+    .error-message, .error {
+        @extend %message;
+        background-color: $django-form-error-message-background-color;
+    }
+
+    .info-message, .info, .success {
+        @extend %message;
+        background-color: $django-form-info-message-background-color;
+    }
+}

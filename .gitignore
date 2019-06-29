@@ -1,0 +1,7 @@
+*.pyc
+.DS_Store
+env
+venv
+.idea/
+**.css.map
+node_modules

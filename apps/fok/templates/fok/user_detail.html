@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if messages %}
+{% include 'fok/partials/messages.html' %}
+{% endif %}
+
+<h4>My contribution</h4>
+<div class="row">
+    <div class="col s3">
+        <div class="row">
+            <h5>Personal information</h5>
+            <form method="post" class="generated-form" id="user-data-form">
+                {% csrf_token %}
+                <input type="hidden" name="type" value="user_data">
+                {{ user_data_form }}
+                <div>
+                    <button class="btn waves-effect waves-light  orange darken-4" name="action">Update</button>
+                </div>
+            </form>
+        </div>
+        <div class="row" style="margin-top: 50px;">
+            <h5>Other options</h5>
+            <ul>
+                <li><a href="{% url 'logout' %}" class="waves-effect waves-light btn-small orange darken-4" style="width: 100%;"><i class="material-icons left">exit_to_app</i>Logout</a></li>
+                {% if user.is_superuser %}
+                <li><a href="{% url 'admin:index' %}" class="waves-effect waves-light btn-small orange darken-4" style="width: 100%; margin-top: 5px"><i class="material-icons left">event_seat</i>Administration</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="col s7 offset-s2">
+        {% if user.pledged_campaigns %}<h5>Your pledges</h5>{% endif %}
+        {% for campaign in user.pledged_campaigns %}
+        <div class="card-panel hoverable" style="padding: 0;">
+            <div class="row pledge valign-wrapper">
+                <div class="col s2"><img src="{{ campaign.image.url }}" class="img-cover"></div>
+                <div class="col s10">
+                <h5>{{ campaign.title }}</h5>
+                    <a class="waves-effect waves-light btn-small orange darken-4" href="{{ campaign.absolute_url }}"><i class="material-icons left">arrow_back</i>Go to campaign page</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!--
+
+
+{% for pledge_form in pledge_forms %}
+<form method="post" class="generated-form" id="form-{{ pledge_form.instance.pk }}-{{forloop.counter}}">
+    {% csrf_token %}
+    <h3>{{ pledge_form.instance.campaign.title }}</h3>
+    <input type="hidden" name="type" value="pledge">
+    <input type="hidden" name="pk" value="{{ pledge_form.instance.pk }}">
+    {{ pledge_form }}
+    <div>
+        <div class="button" onclick="javascript:document.getElementById('form-{{ pledge_form.instance.pk }}-{{forloop.counter}}').submit();">Update pledge</div>
+    </div>
+</form>
+{% endfor %}
+</div>
+-->
+{% endblock %}

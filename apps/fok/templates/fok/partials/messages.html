@@ -1,0 +1,7 @@
+<script>
+(function() {
+{% for message in messages %}
+M.toast({html: '<i class="material-icons left"{% if 'alert-success' in message.tags or 'success' in message.tags %} style="color: green;">check_circle{% else %} style="color: red">error{% endif %}</i>{{ message }}'});
+{% endfor %}
+})();
+</script>

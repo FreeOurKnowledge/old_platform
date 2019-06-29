@@ -1,0 +1,22 @@
+<div class="card-panel hoverable" style="padding: 0;">
+    <img src="{{ campaign.image.url }}" class="img-background"/>
+    <div class="row pledge valign-wrapper">
+        <div class="col s1"><img src="{{ campaign.image.url }}" class="img-cover"></div>
+        <div class="col s8"><h5><a href="{{ campaign.absolute_url }}">{{ campaign.title }}</a></h5>
+            {% if campaign.short_description %}{{ campaign.short_description }}{% else %}{{ campaign.description|truncatechars:200 }}{% endif %}
+        </div>
+        {% if view.request.user.is_anonymous %}
+        <div class="col s2 offset-s1" style="text-align: center;">
+            <a class="waves-effect waves-light btn-large orange darken-4" onclick="javascript:$('#connect-orcid-button').click();">Pledge</a>
+        </div>
+        {% elif campaign in view.request.user.pledged_campaigns %}
+        <div class="col s2 offset-s1" style="text-align: center;">
+            Thank you for your pledge
+        </div>
+        {% else %}
+        <div class="col s2 offset-s1" style="text-align: center;">
+            <a class="waves-effect waves-light btn-large orange darken-4" href="{{ campaign.pledge_url }}">Pledge</a>
+        </div>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,90 @@
+* {
+    font-family: "B612";
+}
+
+h1,h2,h3,h4,h5 {
+    font-family: $titles-font-family;
+}
+
+main {
+    min-height: 100vh;
+}
+
+header {
+    height: 80px;
+
+    img {
+        zoom: 0.7;
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        a {
+            font-family: $titles-font-family;
+            color: black;
+            font-size: 1.3rem;
+            color: #f68212;
+        }
+    }
+}
+
+section {
+    margin: 20px 0;
+}
+
+hr {
+    width: 25%;
+    margin-top: 50px;
+    margin-bottom: 50px;    
+    border-color: ligtgray;
+}
+
+footer {
+    color: black;
+    margin-top: 50px;
+}
+
+.frontpage {
+    min-height: 590px;
+    position: relative;
+
+    h4 {
+        background-color: rgba(255, 255, 255, 0.2); 
+        padding: 20px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+}
+
+.card-panel {
+    padding: 0;
+    position: relative;
+    overflow:hidden;
+    background-color: transparent;
+
+    .pledge {
+        padding: 15px;
+        background-color: transparent;
+        margin-bottom: 0;
+    }
+
+    .img-cover {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .img-background {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        bottom: -130px;
+        left: -130px;
+        opacity: 0.2;
+        z-index: -1;
+    }
+}

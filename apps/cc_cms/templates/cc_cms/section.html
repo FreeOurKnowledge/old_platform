@@ -1,0 +1,12 @@
+<div class="cms_section section_{{ obj.get_type_display }}">
+    {% if obj.get_type_display == 'columns' %}
+        {% for content in obj.content.all %}
+            <div>
+                {{ content.text | safe }}
+            </div>
+        {% endfor %}
+    {% elif False %}
+    {% else %}
+    <span style="color:red;">Section type do not identified!</span>
+    {% endif %}
+</div>

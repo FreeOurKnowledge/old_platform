@@ -1,0 +1,14 @@
+<div class="card-panel hoverable" style="padding: 0;">
+    <img src="{{ campaign.image.url }}" class="img-background"/>
+    <div class="row pledge valign-wrapper">
+        <div class="col s1"><img src="{{ campaign.image.url }}" class="img-cover"></div>
+        <div class="col s11"><h5><a href="{{ campaign.absolute_url }}">{{ campaign.title }}</a></h5>
+            {% if campaign.short_description %}{{ campaign.short_description }}{% else %}{{ campaign.description|truncatechars:200 }}{% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s11 offset-s1"><h5><a href="{{ campaign.absolute_url }}">{{ campaign.title }}</a></h5>
+        <a class="waves-effect waves-light btn-small">Change your pledge</a>
+        </div>
+    </div>
+</div>

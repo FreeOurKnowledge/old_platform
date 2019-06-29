@@ -1,0 +1,90 @@
+{% extends "generic.html" %}
+
+{% block generic %}
+
+
+
+{% if messages %}
+{% include 'fok/partials/messages.html' %}
+{% endif %}
+
+{% load staticfiles %}
+<script>
+(function() {
+    M.AutoInit();
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems);
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems, {});
+      });
+})();
+</script>
+
+<div class="row">
+    <div class="col s5">
+        <img src="{{ campaign.image.url }}">
+        <h1>{{ object.title }}</h1>
+        <div class="row center">
+            <div class="card">
+                <div class="card-content">
+                  <span class="card-title">Support</span>
+                    <p><span style="">Anonymous pledges:</span> {{ object.stats.anonymous_pledges_percentage }}%</p>
+                    <p><span style="">Support metric:</span> {{ object.stats.support_metric }}%</p>
+                </div>
+                <div class="card-action">
+                  <a href="#modal1" class="modal-trigger">Public supporters</a>
+                </div>
+              </div>
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4 style="margin-bottom: 40px;">Public supporters</h4>
+                    <ul id="public-supporters">
+                      {% for supporter in object.stats.public_user_pledges %}
+                      <li>{{ supporter }}</li>
+                      {% endfor %}
+                    </ul>
+                      <style>
+                          #public-supporters {
+                            -moz-column-count: 3;
+                            -moz-column-gap: 20px;
+                            -webkit-column-count: 3;
+                            -webkit-column-gap: 20px;
+                            column-count: 3;
+                            column-gap: 20px;
+                        }
+                      </style>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="col offset-s1 s6" style="">
+            <h4>Rationale</h4>
+                  {{ object.description | safe }}
+            <h4>Criteria</h4>
+                  {{ object.criteria | safe }}
+            {% if pledge %}
+            <div style="margin-top: 50px;">
+                <!--
+                <p><span style="font-weight: bold;">Threshold:</span> {{ pledge.implication }}%</p>
+                <p><span style="font-weight: bold;">Authorship:</span> {{ pledge.author_position.all|join:", " }}</p>
+                <p><span style="font-weight: bold;">Anonymity:</span> {% if pledge.allow_public_name %} No {% else %} Yes {% endif %}</p>
+                -->
+                <a class="waves-effect waves-light btn-small orange darken-4" href="{{ campaign.pledge_url }}">Thanks for your support</a>
+            </div>
+            {% endif %}
+          </ul>
+        <div style="margin-top: 50px;">
+        {% if user.is_anonymous %}
+        Log in before pledging:
+        {% include 'fok/partials/orcid_button.html' %}
+        {% else %}
+            {% if not pledge %}
+            <a href="{{ campaign.pledge_url }}" class="waves-effect waves-light btn-large orange darken-4">Pledge</a>
+            {% endif %}
+        {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

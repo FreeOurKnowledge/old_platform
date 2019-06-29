@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+{% load section %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free our knowledge</title>
+  <link rel="icon" href="{% static 'img/logo_img_trans.png' %}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="{% static 'styles/stylesheet.css' %}" media="screen,projection" />
+  <script type="text/javascript" src="{% static 'js/bin/materialize.min.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+</head>
+<body>
+    <header class="z-depth-2">
+        <div class="row valign-wrapper">
+            <div class="col s1 offset-s1 right-align">
+              <a href="{% url 'home' %}">
+              <img src="{% static 'img/logo3.png' %}"/>
+              </a>
+            </div>
+            {% if user.is_anonymous %}
+            <div class="col s7 offset-s3">
+                <ul class="menu">
+                  <li><a href="{%url 'home' %}#campaigns">Campaigns</a></li>
+                  <li><a href="{% url 'page' 'about' %}">About</a></li>
+                  <li><a href="{% url 'page' 'news' %}">News & Media</a></li>
+                  <li><a href="{% url 'page' 'faq' %}">FAQ</a></li>
+                  <li><a href="{% url 'page' 'contribute' %}">Contribute</a></li>
+                </ul>
+            </div>
+            {% else %}
+            <div class="col s8 offset-s2">
+                <ul class="menu">
+                  <li><a href="{%url 'home' %}#campaigns">Campaigns</a></li>
+                  <li><a href="{% url 'page' 'about' %}">About</a></li>
+                  <li><a href="{% url 'page' 'news' %}">News & Media</a></li>
+                  <li><a href="{% url 'page' 'faq' %}">FAQ</a></li>
+                  <li><a href="{% url 'page' 'contribute' %}">Contribute</a></li>
+                  <li><a href="{%url 'user' %}" class="waves-effect waves-light btn white-text orange darken-4" style="text-transform: none;">My page <i class="material-icons right">settings</i></a></li>
+                </ul>
+            </div>
+            {% endif %}
+
+            <div class="col s2">
+                <div class="nav-wrapper">
+                </div
+            ></div>
+        </div>
+    </header>
+    <main>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+    </main>
+    <footer class="page-footer white z-depth-2">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12 grey-text">
+              {{ "footer"|section }}
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="black-text">Contact us:</h5>
+            <ul>
+              {% if config.TWITTER_PROFILE %}<li><a href="{{ config.TWITTER_PROFILE }}"><ion-icon name="logo-twitter"></ion-icon> Twitter</a></li>{% endif %}
+              {% if config.FACEBOOK_PROFILE %}<li><a href="{{ config.FACEBOOK_PROFILE }}"><ion-icon name="logo-facebook"></ion-icon> Facebook</a></li>{% endif %}
+              {% if config.INSTAGRAM_PROFILE %}<li><a href="{{ config.INSTAGRAM_PROFILE }}"><ion-icon name="logo-instagram"></ion-icon> Instagram</a></li>{% endif %}
+              {% if config.YOUTUBE_PROFILE %}<li><a href="{{ config.YOUTUBE_PROFILE }}"><ion-icon name="logo-youtube"></ion-icon> Youtube</a></li>{% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright orange darken-4">
+        <div class="container">
+        <span class="grey-text text-lighten-4 right">This web site is being jovially developed by
+          <a class="grey-text text-lighten-4" href="https://codi.coop/en/" style="text-decoration:underline;">Codi Cooperatiu</a>.
+        </span>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>

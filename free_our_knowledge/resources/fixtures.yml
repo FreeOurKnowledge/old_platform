@@ -1,0 +1,85 @@
+---
+fok.tests.fixtures.BackgroundFactory:
+  number: 6
+
+fok.tests.fixtures.UserFactory:
+  number: 25
+  related:
+    background:
+      strategy: iterate
+  extra_objects:
+    - number: 1
+      fields_value:
+        email: admin@codi.coop
+        password: test
+        is_staff: true
+        is_superuser: true
+
+cc_cms.tests.fixtures.ContentFactory:
+  number: 8
+
+cc_cms.tests.fixtures.ColumnsFactory:
+  number: 3
+  field_values:
+    name:
+      - introduction
+      - campaigns
+      - footer
+  related:
+    content:
+      strategy: sample
+      number: 1
+
+cc_cms.tests.fixtures.PageFactory:
+  number: 4
+  field_values:
+    name:
+      - faq
+      - news
+      - contribute
+      - about
+
+cc_cms.tests.fixtures.DynamicTextFactory:
+  number: 3
+  field_values:
+    name:
+      - pledge1
+      - pledge2
+      - pledge3
+
+fok.tests.fixtures.CampaignFactory:
+  number: 5
+  field_values:
+    position:
+      - 0
+      - 10
+      - 20
+      - 30
+      - 40
+
+fok.tests.fixtures.EnabledAuthorPositionFactory:
+  number: 3
+  field_values:
+    position:
+      - First
+      - Middle
+      - Last
+
+fok.tests.fixtures.PledgeFactory:
+  number: 100
+  related:
+    user:
+      strategy: choice
+    campaign:
+      strategy: choice
+  field_values:
+    allow_public_name:
+      - true
+      - false
+    implication:
+      - 10
+      - 20
+      - 40
+      - 50
+      - 80
+      - 90

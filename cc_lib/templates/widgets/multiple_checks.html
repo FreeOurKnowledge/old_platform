@@ -1,0 +1,30 @@
+<div style="display: flex; justify-content: space-around;">
+    <input type="hidden" name="{{ widget.name }}" id="{{ widget.attrs.id }}" value="[{{ selected|join:"," }}]">
+{% for choice in choices %}
+    <div><input
+            type="checkbox" {% if choice.pk in selected %}checked{% endif %}
+            name="{{widget.attrs.id}}_check"
+            onchange="javascript:manageChecks_{{widget.attrs.id}}(this, event);"
+            data-id="{{choice.pk}}"
+    > {{ choice }}</div>
+{% endfor %}
+    <script>
+        function manageChecks_{{widget.attrs.id}}(element, event) {
+            var resultId = "{{widget.attrs.id}}";
+            var elementsName = "{{widget.attrs.id}}_check";
+            var elements = document.getElementsByName(elementsName);
+            var currentChecked = [];
+            elements.forEach(function(element) {
+              if (element.checked) {
+                currentChecked.push(element.dataset.id);
+              }
+            });
+            if (currentChecked.length < 1) {
+                event.stopPropagation();
+                element.checked = true;
+            } else {
+                document.getElementById(resultId).value = JSON.stringify(currentChecked);
+            }
+        }
+    </script>
+</div>

@@ -1,0 +1,15 @@
+.cms_section {
+
+}
+
+.section_columns {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    div {
+        text-align: justify;
+        margin: 5px 20px;
+        flex-basis: 100%;
+    }
+}

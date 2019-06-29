@@ -1,0 +1,100 @@
+{% extends "generic.html" %}
+
+{% block generic %}
+
+{% load staticfiles %}
+{% load section %}
+
+<script>
+(function() {
+    M.AutoInit();
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems);
+      });
+})();
+</script>
+
+<div class="row">
+    <div class="col s5">
+        <img src="{{ object.image.url }}">
+        <h1>{{ object.title }}</h1>
+    </div>
+    <div class="col offset-s1 s6" style="">
+            <h4>Rationale</h4>
+                  {{ object.description | safe }}
+            <h4>Criteria</h4>
+                  {{ object.criteria | safe }}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col offset-s2 s8" style="margin-top: 100px;">
+        <form action="{% url 'sign' slug=object.slug %}" id="sign-form" method="post">
+            {% csrf_token %}
+            <div class="section" style="text-align: justify;">
+                {{ "pledge1"|dynamic_text }}
+            </div>
+            <div>
+                <script>
+                    function updateImplication() {
+                        var previous_implication = {% if pledge.implication %}{{ pledge.implication }}{% else %}0{% endif %};
+                        var implicationControl = document.getElementsByName("implication")[0];
+                        var implicationValue = Math.round(parseInt(implicationControl.value) / 5) * 5;
+                        implicationControl.value = (implicationValue > previous_implication) ? implicationValue : previous_implication;
+                        document.getElementById('implicationValue').innerHTML = implicationControl.value;
+                    }
+                </script>
+                <input type="range" list="tickmarks" min="1" max="100" value="{% if pledge.implication %}{{ pledge.implication }}{% else %}50{% endif %}" name="implication" onchange="javascript:updateImplication();">
+                <datalist id="tickmarks"> <!-- style="display: inline-flex;" -->
+                    <option value="0" label="0%">
+                    <option value="5">
+                    <option value="10">
+                    <option value="15">
+                    <option value="20">
+                    <option value="25" label="25%">
+                    <option value="30">
+                    <option value="35">
+                    <option value="40">
+                    <option value="45">
+                    <option value="50" label="50%">
+                    <option value="55">
+                    <option value="60">
+                    <option value="65">
+                    <option value="70">
+                    <option value="75" label="75%">
+                    <option value="80">
+                    <option value="85">
+                    <option value="90">
+                    <option value="95">
+                    <option value="100" label="100%">
+                </datalist>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <b>Choosen value: </b> <span id="implicationValue">{% if pledge.implication %}{{ pledge.implication }}{% else %}50{% endif %}</span>
+            </div>
+            <div class="divider"></div>
+            <div class="section" style="text-align: justify;">
+                {{ "pledge2"|dynamic_text }}
+            </div>
+            <div style="margin-bottom: 15px;">
+                {{ form.author_position }}
+            </div>
+            <div class="divider"></div>
+            <div class="section" style="text-align: justify;">
+                {{ "pledge3"|dynamic_text }}
+            </div>
+            <div style="margin-bottom: 15px;">
+                <div class="switch"><label>Do not display my name on the website<input name="allow_public_name" {% if pledge.allow_public_name %}checked{% endif %} type="checkbox"><span class="lever"></span>Yes, please! Display my name on the website!</label></div>
+            </div>
+            <div class="divider" style="margin-bottom: 15px;"></div>
+        </form>
+        <div>
+            {% if pledge %}
+            <a class="btn-large orange darken-4" onclick="javascript:document.getElementById('sign-form').submit();">Update the pledge</a>
+            {% else %}
+            <a class="btn-large orange darken-4" onclick="javascript:document.getElementById('sign-form').submit();">Sign the pledge</a>
+            {% endif %}
+        </div>
+</div>
+{% endblock %}

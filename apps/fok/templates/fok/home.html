@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+{% load section %}
+<div class="section valign-wrapper frontpage" style="background-image: url('{% static 'img/background.jpg' %}');">
+    <div class="row data valign-wrapper">
+        <div class="col s6">
+            <h4>{{ config.FRONTPAGE_SENTENCE }}</h4>
+            {% if user.is_anonymous %}
+            {% include 'fok/partials/orcid_button.html' %}
+            {% endif %}
+        </div>
+        <div class="col s5">
+            <video class="responsive-video" controls>
+                <source src="{{ config.FRONTPAGE_VIDEO_URL }}" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</div>
+<div class="section introduction row" style="text-align: center;">
+    <div class="row">
+        <div class="col s12">
+            <h3>{{ config.INTRODUCTION_TITLE_IN_FRONTPAGE }}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            {{ "introduction"|section }}
+        </div>
+    </div>
+</div>
+<div class="section pledges">
+    <div style="text-align: center;">
+        <div class="row">
+            <div class="col s12">
+                <h3>{{ config.CAMPAIGNS_TITLE_IN_FRONTPAGE }}</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                {{ "campaigns"|section }}
+            </div>
+        </div>
+    </div>
+    <hr class="" id="campaigns">
+    {% for campaign in campaigns %}
+    {% include 'fok/partials/campaign_widget.html' with campaign=campaign %}
+    {% endfor %}
+</div>
+
+{% endblock %}
