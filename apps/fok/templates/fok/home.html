@@ -11,9 +11,11 @@
             {% endif %}
         </div>
         <div class="col s5">
+            {% if config.FRONTPAGE_VIDEO_URL %}
             <video class="responsive-video" controls>
                 <source src="{{ config.FRONTPAGE_VIDEO_URL }}" type="video/mp4">
             </video>
+            {% endif %}
         </div>
     </div>
 </div>
