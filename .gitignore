@@ -5,3 +5,4 @@ venv
 .idea/
 **.css.map
 node_modules
+free_our_knowledge/settings/priv/
