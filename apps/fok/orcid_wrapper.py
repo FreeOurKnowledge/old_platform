@@ -21,7 +21,7 @@ def authorize(auth_code):
             'accept': 'application/json'
         }
     )
-    assert data.status_code == 200
+    assert data.status_code == 200, str(data.content)
     return data.json()
 
 
