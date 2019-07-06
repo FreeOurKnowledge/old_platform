@@ -24,7 +24,13 @@ class OrcidBackend:
 
     def auth_debug(self, request):
         orcid = ''.join(random.choice(string.ascii_lowercase) for _ in range(10))
-        user, created = User.objects.get_or_create(username=orcid)
+        user, created = User.objects.get_or_create(
+            username=orcid,
+            defaults={
+                'is_staff': True,
+                'is_superuser': True
+            }
+        )
         if created:
             user.first_name = factory.Faker('first_name').generate([])
             user.name = factory.Faker('first_name').generate([])
