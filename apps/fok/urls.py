@@ -6,9 +6,9 @@ from .admin import fok_admin_site
 from django.views.generic import TemplateView
 
 from .models import Campaign
-from .views import SignPledgeView, UserProfileView, CampaignView, LoginView
+from .views import SignPledgeView, UserProfileView, CampaignView, LoginView, NewsletterView
 from django.contrib.auth.views import LogoutView
-from django.conf import settings
+
 
 urlpatterns = [
     path('', TemplateView.as_view(
@@ -26,5 +26,6 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path('logout', LogoutView.as_view(
         next_page='home'
-    ), name='logout')
+    ), name='logout'),
+    path('newsletter/', NewsletterView.as_view(), name='newsletter')
 ]

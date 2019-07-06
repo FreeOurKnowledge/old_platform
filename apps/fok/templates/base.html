@@ -15,6 +15,60 @@
   <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
 </head>
 <body>
+    {% if not user.is_anonymous and not user.is_greeted %}
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          {% if config.TITLE_GREETINGS %}
+            <h4 style="color: #f68212;">
+            <img src="{% static 'img/logo_img_trans.png' %}" style="height: 1em; width: auto;" />
+            {{ config.TITLE_GREETINGS }}
+            </h4>
+            {% endif %}
+          {% if config.TEXT_GREETINGS %}<p style="margin-top: 30px;">{{ config.TEXT_GREETINGS }}</p>{% endif %}
+            {% if config.SHOW_SIGNUP_MAILING_ON_GREETINGS %}
+            <form id="greetings_form" action="{% url 'newsletter' %}" style="margin-top: 25px" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                <div class="row">
+                    <div class="input-field col s4 offset-s1">
+                      <input id="email" name="email" type="email" class="validate">
+                      <label for="email">Email</label>
+                    </div>
+                    <div class="col s5 offset-s1" style="padding-top: 2rem;">
+                        <div class="switch">
+                        <label>
+                          Don't update me
+                          <input type="checkbox" name="newsletter" checked id="newsletter">
+                          <span class="lever"></span>
+                          Keep me updated
+                        </label>
+                      </div>
+                    </div>
+                </div>
+            </form>
+            {% endif %}
+            {% if config.COOKIES_TEXT %}
+            <div class="row" style="font-size: 0.8rem; color: white; text-align: right; background-color: #f68212; padding: 3px 10px;">
+              {{ config.COOKIES_TEXT }}
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="modal-footer">
+          <a {% if config.SHOW_SIGNUP_MAILING_ON_GREETINGS %}onclick="javascript:document.getElementById('greetings_form').submit();" class="waves-effect waves-green btn-flat"{% else %}href="#!" class="modal-close waves-effect waves-green btn-flat"{% endif %}>Agree</a>
+        </div>
+      </div>
+      <script>
+          $(document).ready(function(){
+            var elem = document.querySelectorAll('.modal');
+            var instance = M.Modal.init(elem, {
+                'dismissible': false
+            })[0];
+            instance.open();
+          });
+      </script>
+    {% endif %}
     <header class="z-depth-2">
         <div class="row valign-wrapper">
             <div class="col s1 offset-s1 right-align">

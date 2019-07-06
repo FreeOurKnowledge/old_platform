@@ -174,6 +174,26 @@ CONSTANCE_CONFIG = {
         'Scholarly publishing is broken',
         'Text shown as title on the frontpage for the introduction section.'
     ),
+    'ACTIVATE_GREETINGS': (
+        True,
+        'Activate greetings window.'
+    ),
+    'TITLE_GREETINGS': (
+        'Welcome to Free Our Knowledge!',
+        'Title for the pop-up greetings window.'
+    ),
+    'TEXT_GREETINGS': (
+        'This is Free Our Knowledge, give me your mail NOW:',
+        'Text for the pop-up greetings window.'
+    ),
+    'SHOW_SIGNUP_MAILING_ON_GREETINGS': (
+        True,
+        'Check this if you want to show the sign up for the mailing list on the greetings pop-up.'
+    ),
+    'COOKIES_TEXT': (
+        'We use cookies to ensure that we give you the best experience on our website.',
+        'Add text for the cookies warning.'
+    ),
     'TWITTER_PROFILE': (
         'https://twitter.com/', ''
     ),

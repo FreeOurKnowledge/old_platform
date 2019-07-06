@@ -5,3 +5,4 @@ from .SignPledgeView import SignPledgeView
 from .UserProfileView import UserProfileView
 from .CampaignView import CampaignView
 from .LoginView import LoginView
+from .generic import NewsletterView

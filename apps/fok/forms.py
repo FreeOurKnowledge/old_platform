@@ -27,3 +27,12 @@ class UserDataForm(forms.ModelForm):
         widgets = {
             'newsletter': SwitchWidget
         }
+
+
+class NewsletterForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['email', 'newsletter']
+        widgets = {
+            'newsletter': SwitchWidget
+        }

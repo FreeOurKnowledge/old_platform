@@ -33,6 +33,7 @@ class User(AbstractUser):
     name = models.CharField(max_length=150, unique=False)
     background = models.ForeignKey(Background, null=True, on_delete=models.SET_NULL, verbose_name='Research Field')
     newsletter = models.BooleanField(default=False)
+    is_greeted = models.BooleanField(default=False)
 
     @property
     def pledged_campaigns(self):
