@@ -205,6 +205,9 @@ CONSTANCE_CONFIG = {
     ),
     'YOUTUBE_PROFILE': (
         'https://www.youtube.com/', ''
+    ),
+    'GITHUB_PROFILE': (
+        'https://www.github.com/', ''
     )
 }
 
