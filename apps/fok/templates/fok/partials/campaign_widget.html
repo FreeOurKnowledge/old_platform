@@ -7,7 +7,7 @@
         </div>
         {% if view.request.user.is_anonymous %}
         <div class="col s2 offset-s1" style="text-align: center;">
-            <a class="waves-effect waves-light btn-large orange darken-4" onclick="javascript:$('#connect-orcid-button').click();">Pledge</a>
+            <a class="waves-effect waves-light btn-large orange darken-4" onclick="javascript:openORCID('{{ campaign.pledge_url }}');">Login & pledge</a>
         </div>
         {% elif campaign in view.request.user.pledged_campaigns %}
         <div class="col s2 offset-s1" style="text-align: center;">
