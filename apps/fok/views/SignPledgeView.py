@@ -35,7 +35,7 @@ class SignPledgeView(TemplateView):
                     **form.cleaned_data
                 )
             else:
-                assert form.cleaned_data['implication'] >= pledge.implication
+                assert form.cleaned_data['implication'] <= pledge.implication
                 for attr, value in form.cleaned_data.items():
                     setattr(pledge, attr, value)
             pledge.save()
