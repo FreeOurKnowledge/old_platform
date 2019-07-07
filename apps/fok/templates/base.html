@@ -15,6 +15,10 @@
   <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
 </head>
 <body>
+{% if messages %}
+{% include 'fok/partials/messages.html' %}
+{% endif %}
+
     {% if not user.is_anonymous and not user.is_greeted %}
       <!-- Modal Structure -->
       <div id="modal1" class="modal">
