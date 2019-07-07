@@ -3,6 +3,7 @@ from .models import User, Background, Campaign, Pledge
 from cc_cms.admin import register_cms, Page, PageAdmin
 from constance.admin import ConstanceAdmin, Config
 from django_summernote.admin import SummernoteModelAdmin
+from django.contrib.auth.decorators import login_required
 
 
 class FokAdmin(admin.AdminSite):
@@ -29,3 +30,4 @@ register_cms(fok_admin_site)
 
 fok_admin_site.unregister(Page)
 fok_admin_site.register(Page, FokPageAdmin)
+fok_admin_site.login = login_required(admin.site.login)

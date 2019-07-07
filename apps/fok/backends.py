@@ -9,7 +9,6 @@ import random
 import factory
 
 
-
 class OrcidBackend:
     def auth_orcid(self, request):
         code = request.GET['code']
