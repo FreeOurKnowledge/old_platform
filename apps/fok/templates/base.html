@@ -18,7 +18,6 @@
 {% if messages %}
 {% include 'fok/partials/messages.html' %}
 {% endif %}
-
     {% if not user.is_anonymous and not user.is_greeted %}
       <!-- Modal Structure -->
       <div id="modal1" class="modal">
@@ -30,10 +29,11 @@
             </h4>
             {% endif %}
           {% if config.TEXT_GREETINGS %}<p style="margin-top: 30px;">{{ config.TEXT_GREETINGS }}</p>{% endif %}
-            {% if config.SHOW_SIGNUP_MAILING_ON_GREETINGS %}
+
             <form id="greetings_form" action="{% url 'newsletter' %}" style="margin-top: 25px" method="POST">
                 {% csrf_token %}
                 <input type="hidden" name="redirect_url" value="{{ request.get_full_path }}">
+                {% if config.SHOW_SIGNUP_MAILING_ON_GREETINGS %}
                 <div class="row">
                     <div class="input-field col s4 offset-s1">
                       <input id="email" name="email" type="email" class="validate">
@@ -50,8 +50,8 @@
                       </div>
                     </div>
                 </div>
+                {% endif %}
             </form>
-            {% endif %}
             {% if config.COOKIES_TEXT %}
             <div class="row" style="font-size: 0.8rem; color: white; text-align: right; background-color: #f68212; padding: 3px 10px;">
               {{ config.COOKIES_TEXT }}
@@ -60,7 +60,7 @@
         </div>
 
         <div class="modal-footer">
-          <a {% if config.SHOW_SIGNUP_MAILING_ON_GREETINGS %}onclick="javascript:document.getElementById('greetings_form').submit();" class="waves-effect waves-green btn-flat"{% else %}href="#!" class="modal-close waves-effect waves-green btn-flat"{% endif %}>Agree</a>
+          <a onclick="javascript:document.getElementById('greetings_form').submit();" class="waves-effect waves-green btn-flat">Agree</a>
         </div>
       </div>
       <script>
