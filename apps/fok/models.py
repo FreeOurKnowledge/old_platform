@@ -93,17 +93,14 @@ class Campaign(models.Model):
             if n_anonymous_users != 0 \
             else 0
 
-        if cons.OVERRIDE_SUPPORT_METRICS_TEXT:
-            support_metric = cons.OVERRIDE_SUPPORT_METRICS_TEXT
-        else:
-            support_metric = int((n_public_users + (n_anonymous_users * config.ANONYMOUS_USERS_FACTOR)) / n_pledges * 100) \
-                if n_pledges != 0 else 0
+        support_metric = int((n_public_users + (n_anonymous_users * config.ANONYMOUS_USERS_FACTOR)) / n_pledges * 100) \
+            if n_pledges != 0 else 0
 
         return {
             'public_user_pledges': public_users,
             'research_field_impact': fields_percentage,
             'anonymous_pledges_percentage': f'{anonymous_pledges_percentage:.2f}',
-            'support_metric': f'{support_metric:.2f}'
+            'support_metric': f'{support_metric:.2f}' if not cons.OVERRIDE_SUPPORT_METRICS_TEXT else cons.OVERRIDE_SUPPORT_METRICS_TEXT
         }
 
     def __str__(self):
