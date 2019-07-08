@@ -38,7 +38,9 @@
             <div>
                 <script>
                     function updateImplication() {
-                        var previous_implication = {% if pledge.implication %}{{ pledge.implication }}{% else %}0{% endif %};
+                        var max = 100;
+                        var min = 0;
+                        var previous_implication = {% if pledge.implication %}{{ pledge.implication }}{% else %}max{% endif %};
                         var implicationControl = document.getElementsByName("implication")[0];
                         var implicationValue = Math.round(parseInt(implicationControl.value) / 5) * 5;
                         implicationControl.value = (implicationValue < previous_implication) ? implicationValue : previous_implication;
