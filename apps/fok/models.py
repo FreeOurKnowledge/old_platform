@@ -99,6 +99,7 @@ class Campaign(models.Model):
         return {
             'public_user_pledges': public_users,
             'research_field_impact': fields_percentage,
+            'anonymous_pledges_count': n_anonymous_users,
             'anonymous_pledges_percentage': f'{anonymous_pledges_percentage:.2f}',
             'support_metric': f'{support_metric:.2f}' if not cons.OVERRIDE_SUPPORT_METRICS_TEXT else cons.OVERRIDE_SUPPORT_METRICS_TEXT
         }
