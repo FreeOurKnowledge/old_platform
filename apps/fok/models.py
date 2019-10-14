@@ -98,6 +98,7 @@ class Campaign(models.Model):
 
         return {
             'public_user_pledges': public_users,
+            'pledges_count': n_pledges,
             'research_field_impact': fields_percentage,
             'anonymous_pledges_count': n_anonymous_users,
             'anonymous_pledges_percentage': f'{anonymous_pledges_percentage:.2f}',
