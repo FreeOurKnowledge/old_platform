@@ -47,9 +47,9 @@
                         document.getElementById('implicationValue').innerHTML = implicationControl.value;
                     }
                 </script>
-                <input type="range" list="tickmarks" min="1" max="100" value="{% if pledge.implication %}{{ pledge.implication }}{% else %}50{% endif %}" name="implication" onchange="javascript:updateImplication();">
+                <input type="range" list="tickmarks" min="0" max="100" value="{% if pledge.implication %}{{ pledge.implication }}{% else %}50{% endif %}" name="implication" onchange="javascript:updateImplication();">
                 <datalist id="tickmarks"> <!-- style="display: inline-flex;" -->
-                    <option value="0" label="0%">
+                    <option value="0" label="0% (immediate activation)">
                     <option value="5">
                     <option value="10">
                     <option value="15">
@@ -73,7 +73,7 @@
                 </datalist>
             </div>
             <div style="margin-bottom: 15px;">
-                <b>Choosen value: </b> <span id="implicationValue">{% if pledge.implication %}{{ pledge.implication }}{% else %}50{% endif %}</span>
+                <b>Chosen value: </b> <span id="implicationValue">{% if pledge.implication %}{{ pledge.implication }}{% else %}50{% endif %}</span>
             </div>
             <div class="divider"></div>
             <div class="section" style="text-align: justify;">
