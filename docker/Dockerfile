@@ -11,5 +11,12 @@ RUN apk add postgresql-dev
 RUN apk add libffi-dev
 RUN apk add libxslt-dev
 
-COPY requirements.txt /srv/requirements.txt
+ADD requirements.txt /srv/requirements.txt
 RUN pip install -r /srv/requirements.txt
+
+WORKDIR /src
+
+ADD docker/entrypoint.sh /src/entrypoint.sh
+COPY . /src
+
+ENTRYPOINT ["/bin/sh", "/src/entrypoint.sh"]
