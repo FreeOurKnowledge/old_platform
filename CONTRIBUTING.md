@@ -10,7 +10,9 @@
 
 From the project root:
 
-  docker build . -f docker/Dockerfile -t fok_platform
+  docker build . -f ./docker/Dockerfile -t fok_platform
+  
+  docker-compose -f ./docker/docker-compose.yml up --build -d
 
 2. [Configure credentials]
 
