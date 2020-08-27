@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'fok',
         'USER': 'postgres',
         'PASSWORD': 'mysecretpassword',
-        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
+        'HOST': 'docker_db_1', #os.environ.get('DB_HOST', '127.0.0.1')
     }
 }
 
