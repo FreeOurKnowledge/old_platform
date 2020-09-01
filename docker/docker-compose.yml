@@ -13,6 +13,9 @@ services:
       - "8080:8080"
     depends_on:
       - db
+    volumes:
+      - /home/coopersmout/git/platform/apps:/src/apps
+      - /home/coopersmout/git/platform/free_our_knowledge:/src/free_our_knowledge
 
   db:
     image: postgres
