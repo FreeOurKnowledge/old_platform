@@ -124,8 +124,8 @@ USE_L10N = True
 USE_TZ = True
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend'
-    # 'fok.backends.OrcidBackend'
+    # 'django.contrib.auth.backends.ModelBackend'
+    'fok.backends.OrcidBackend'
 ]
 
 USE_ORCID = False
@@ -224,6 +224,7 @@ AWS_STORAGE_BUCKET_NAME = 'codi.coop.test'
 AWS_S3_CUSTOM_DOMAIN = f's3.wasabisys.com/{AWS_STORAGE_BUCKET_NAME}'
 AWS_S3_ENDPOINT_URL = 'https://s3.wasabisys.com'
 AWS_DEFAULT_ACL = 'public-read'
-DEFAULT_FILE_STORAGE = 'cc_lib.storages.MediaStorage'
+# DEFAULT_FILE_STORAGE = 'cc_lib.storages.MediaStorage'
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 EXTERNAL_MEDIA_PATH = 'fok/media'
 MEDIA_FILE_OVERWRITE = True
