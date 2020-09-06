@@ -1,4 +1,4 @@
-# platform code
+# FOK platform code
 ### Vision Statement
 We're working with researchers and developers to build a 'crowdacting' platform so that researchers can organise collective action in the pursuit of progressive, inclusive, and supportive cultural norms in academia.
 
