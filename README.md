@@ -1,6 +1,6 @@
 # platform code
 ### Vision Statement
-We're working with researchers and developers to build a 'crowdacting' platform so that researchers can act collectively to foster new, inclusive, and supportive cultural norms in academia.
+We're working with researchers and developers to build a 'crowdacting' platform so that researchers can organise collective action in the pursuit of progressive, inclusive, and supportive cultural norms in academia.
 
 ### Purpose of this repository
 This is the open source repository for building the [Free Our Knowledge platform](https://www.freeourknowledge.org). Note that all discussion and documents related to the project, including discussion of campaign ideas, is hosted separately [here](). This repo is just for code. 
