@@ -1,15 +1,18 @@
-# platform
-Community organisation for the development of Project Free Our Knowledge: a collective action platform for academic researchers (see http://freeourknowledge.org)
+# platform code
+### Vision Statement
+We're working with researchers and developers to build a 'crowdacting' platform so that researchers can act collectively to foster new, inclusive, and supportive cultural norms in academia.
 
-Aim: Develop a generic platform that measures the level of 'support' in the academic community for campaign(s) to boycott journals that do not conform to particular open science criteria (which can be defined separately for each campaign on the platform). E.g. one campaign can be to exclusively support journals that are compliant with the Fair Open Access principles, and another campaign can be to exclusively support journals that allow post-prints (or author accepted manuscripts) to be made available 'green OA' on an online repository. Each campaign will appeal to different researchers to varying degrees, depending on their career stage and research field, and provide a mechanism by which researchers can voice their commitment to various practices, subject to there being sufficient support from other academics in their research field. Academics will be free to sign onto any and all campaigns (using their ORCID), and when doing so will indicate the level of support at which they agree to uphold their pledge. Critically, their pledge will remain inactive and their name anonymised until the threshold they selected is crossed. At that time, we will reveal the names of all pledgers who have selected that threshold, and direct them to uphold their pledges in unison from that day forward (thus mitigating risk to individual pledgers).
+### Purpose of this repository
+This is the open source repository for building the [Free Our Knowledge platform](https://www.freeourknowledge.org). Note that all discussion and documents related to the project, including discussion of campaign ideas, is hosted separately [here](). This repo is just for code. 
 
-Language: Python
 
-Method: see #1 and https://www.freeourknowledge.org/pages/about/
+### How you can support Project FOK
+If you're new to the project, please help us by doing the following:
+* Watch/star this repository and the [discussion repository](https://github.com/FreeOurKnowledge/discussion/)
+* Log in to the [website](https://www.freeourknowledge.org/) using ORCID so that we have you on the mailing list (or email info [at] freeourknowledge.org)
+* Pledge to any [campaigns](https://www.freeourknowledge.org/#campaigns) that you feel comfortable supporting
+* Follow + retweet on [Twitter](https://twitter.com/projectfok) and [Facebook](https://www.facebook.com/projectFOK/)  
+* Join the Google Group by [emailing us](mailto: info@freeourknowledge.org)
 
-Housekeeping:
-- Register on the platform to stay in the loop! http://freeourknowledge.org
-- Twitter: @projectFOK
-- Facebook: https://www.facebook.com/projectFOK/
-- Email: info [at] freeourknowledge.org
+### Other info
 - Prior discussion at https://gitlab.com/publishing-reform/discussion/issues/78
