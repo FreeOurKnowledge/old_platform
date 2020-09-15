@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'fok',
         'USER': 'postgres',
         'PASSWORD': 'mysecretpassword',
-        'HOST': os.environ.get('DB_HOST', '127.0.0.1'),
+        'HOST': 'docker_db_1', #os.environ.get('DB_HOST', '127.0.0.1')
     }
 }
 
@@ -224,6 +224,7 @@ AWS_STORAGE_BUCKET_NAME = 'codi.coop.test'
 AWS_S3_CUSTOM_DOMAIN = f's3.wasabisys.com/{AWS_STORAGE_BUCKET_NAME}'
 AWS_S3_ENDPOINT_URL = 'https://s3.wasabisys.com'
 AWS_DEFAULT_ACL = 'public-read'
-DEFAULT_FILE_STORAGE = 'cc_lib.storages.MediaStorage'
+# DEFAULT_FILE_STORAGE = 'cc_lib.storages.MediaStorage'
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 EXTERNAL_MEDIA_PATH = 'fok/media'
 MEDIA_FILE_OVERWRITE = True

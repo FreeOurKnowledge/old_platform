@@ -25,12 +25,13 @@ class CampaignFactory(DjangoFactory):
         model = Campaign
     visible = True
     criteria = factory.Faker('text', max_nb_chars=2000)
-    image = factory.fuzzy.FuzzyChoice(
-        storage_files(
-            settings.FIXTURES_PATH_TO_COVER_IMAGES,
-            f'http://{settings.AWS_S3_CUSTOM_DOMAIN}/{settings.AWS_STORAGE_BUCKET_NAME}'
-        )
-    )
+    image = 'https://www.emacswiki.org/pics/static/KitchenSinkBW.png'
+    # factory.fuzzy.FuzzyChoice(
+    #     storage_files(
+    #         settings.FIXTURES_PATH_TO_COVER_IMAGES,
+    #         f'http://{settings.AWS_S3_CUSTOM_DOMAIN}/{settings.AWS_STORAGE_BUCKET_NAME}'
+    #     )
+    #)
 
 
 class EnabledAuthorPositionFactory(DjangoFactory):

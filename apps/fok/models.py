@@ -29,8 +29,8 @@ class User(AbstractUser):
     REQUIRED_FIELDS = []
     USERNAME_FIELD = 'id'
     objects = CCUserManager()
-    username = models.CharField(max_length=20, unique=False)
-    password = models.CharField(max_length=20, unique=False, blank=True, null=True)
+    username = models.CharField(max_length=30, unique=False)
+    password = models.CharField(max_length=120, unique=False, blank=True, null=True)
     name = models.CharField(max_length=150, unique=False)
     background = models.ForeignKey(
         Background,
