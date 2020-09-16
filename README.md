@@ -1,6 +1,6 @@
 # FOK platform code
 ### Vision Statement
-We're working with researchers to build a 'crowdacting' platform that helps them organise collective action in the pursuit of positive culture change in academia.
+We're building a platform that helps researchers organise the collective uptake of mutually beneficial research practices, so that we can create positive cultural change in academia without placing vulnerable individuals at risk.
 
 ### Purpose of this repository
 This is the open source repository for building the [Free Our Knowledge platform](https://www.freeourknowledge.org). Note that all discussion and documents related to the project, including discussion of campaign ideas, is hosted separately [here](). This repo is just for code. 
