@@ -1,6 +1,6 @@
 # Free Our Knowledge: Platform code repository
 ### Vision Statement
-We're building a platform that helps researchers organise the collective uptake of mutually beneficial research practices, so that we can create positive cultural change in academia without placing individual researchers at risk.
+We're building a platform that helps researchers use collective action to establish positive cultural norms in academia, so that individuals can adopt open and reproducible research practices without risking their careers in the process. 
 
 ### Project structure
 Project FOK is divided into two separate repositories:
