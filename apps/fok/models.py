@@ -125,8 +125,8 @@ class Pledge(models.Model):
 
     user = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, related_name='pledges')
     campaign = models.ForeignKey(Campaign, on_delete=models.SET_NULL, null=True, related_name='pledges')
-    implication = models.FloatField(verbose_name='Threshold')
-    author_position = models.ManyToManyField(EnabledAuthorPosition)
+    implication = models.FloatField(verbose_name='Threshold', blank=True, default=None)
+    author_position = models.ManyToManyField(EnabledAuthorPosition, blank=True, default=None)
     allow_public_name = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
