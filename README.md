@@ -1,3 +1,6 @@
+## NOTE: this repo is deprecated and has been superceded. the new platform is being built [here](https://github.com/FreeOurKnowledge/freeourknowledge.github.io)
+
+
 # Free Our Knowledge: Platform code repository
 ### Vision Statement
 We're building a platform that helps researchers use collective action to establish positive cultural norms in academia, so that individuals can adopt open and reproducible research practices without risking their careers in the process. 
