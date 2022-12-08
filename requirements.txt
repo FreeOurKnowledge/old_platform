@@ -1,7 +1,7 @@
 beautifulsoup4==4.7.1
 boto3==1.9.120
 botocore==1.12.120
-certifi==2019.3.9
+certifi==2022.12.7
 chardet==3.0.4
 Django==2.1.7
 django-constance==2.4.0
